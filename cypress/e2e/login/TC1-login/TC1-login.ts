@@ -1,7 +1,6 @@
 import { When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import LoginPageAction from "../../../pageObjects/loginPage/actions";
 import LoginPageAsserts from "../../../pageObjects/loginPage/asserts";
-import SignupPageAsserts from "../../../pageObjects/signupPage/asserts";
 import AccountData from "../../../fixtures/accontData";
 
 const loginPageAction = new LoginPageAction();
@@ -43,8 +42,7 @@ When("User enters an invalid email address or password", () => {
 });
 
 Then("User should be redirected to the registration page", () => {
-  const signupPageAsserts = new SignupPageAsserts();
-  signupPageAsserts.checkUrl();
+  cy.url().should('include', '/register');
 });
 
 Then("The url should be valid for Sign In page", () => {

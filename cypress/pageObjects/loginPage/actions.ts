@@ -1,3 +1,5 @@
+import AccountData from "../../fixtures/accontData"
+
 class LoginPageAction {
 
     visitLoginPage(){
@@ -5,7 +7,7 @@ class LoginPageAction {
         return this
     } 
 
-    login(email: string, password: string){
+    login(email: string = AccountData.email, password: string = AccountData.password){
         cy.get('input[type="email"]').clear().type(email)
         cy.get('input[type="password"]').clear().type(password)
         cy.get('button[type="submit"]').click()

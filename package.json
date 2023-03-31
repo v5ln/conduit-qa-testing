@@ -11,7 +11,8 @@
   "dependencies": {
     "-": "^0.0.1",
     "cypress": "^12.9.0",
-    "save-dev": "^0.0.1-security"
+    "save-dev": "^0.0.1-security",
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^16.0.1",

@@ -9,13 +9,6 @@ When("[COMMON]: User visit login page", ()=>{
     loginPageAction.visitLoginPage();
 })
 
-When("[COMMON]: User login to the system with {string} email and {string} password",(email: string, password: string)=>{ 
-    loginPageAction
-    .visitLoginPage()
-    .login(
-        email == "valid" ? AccountData.email : email,
-        password == "valid" ? AccountData.password : password);
-})
 
 When("[COMMON]: User fill login form with {string} email and {string} password",
 (email: string, password: string)=>{

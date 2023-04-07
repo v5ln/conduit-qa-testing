@@ -24,13 +24,13 @@ Cypress.Commands.add('login', (email = AccountData.email, password = AccountData
         },
       },
     }).then(response => {
-      window.localStorage.setItem('jwt', response.body.user.token);
+      window.localStorage.setItem('token', response.body.user.token);
     });
     cy.visit('')
   });
 
   Cypress.Commands.add('logout', () => {
-    window.localStorage.removeItem('jwt');
+    window.localStorage.removeItem('token');
     cy.visit('')
   });
 
@@ -49,7 +49,7 @@ Cypress.Commands.add('login', (email = AccountData.email, password = AccountData
         }
     }
     }).then((response) => {
-    window.localStorage.setItem('jwt', response.body.user.token);
+    window.localStorage.setItem('token', response.body.user.token);
     });
     cy.visit('')
   });

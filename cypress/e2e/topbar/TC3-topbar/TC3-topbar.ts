@@ -1,21 +1,8 @@
-import { Given, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Then } from "@badeball/cypress-cucumber-preprocessor";
 import TopBarComponentAsserts from "../../../pageObjects/topBarComponent/asserts";
-import LoginPageAction from "../../../pageObjects/loginPage/actions";
 import AccountData from "../../../fixtures/accontData";
 
 const topBarComponentAsserts = new TopBarComponentAsserts();
-const loginPageAction = new LoginPageAction();
-
-Given("User is logged out", () => {
-    cy.visit("https://react-redux.realworld.io/");
-});
-
-Given("User is logged in", () => {
-    cy.visit("https://react-redux.realworld.io/");
-    loginPageAction
-    .visitLoginPage()
-    .login();
-});
 
 Then("Sign in URL should be {string}", (valid: string) => {
     topBarComponentAsserts.checkSignInUrl(valid == "valid" ? true: false);

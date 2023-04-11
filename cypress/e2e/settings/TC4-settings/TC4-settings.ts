@@ -4,9 +4,11 @@ import User from "../../../fixtures/model/user"
 import AccountData from "../../../fixtures/accontData"
 import TopBarComponentAsserts from "../../../pageObjects/topBarComponent/asserts";
 import Services from "../../../pageObjects/shared/services";
+import SettingsPageAsserts from "../../../pageObjects/settingsPage/asserts";
 
 const settingsPageAction = new SettingsPageAction()
 const topBarComponentAsserts = new TopBarComponentAsserts()
+const settingsPageAsserts = new SettingsPageAsserts()
 var editUserData: User;
 
 beforeEach(()=>{
@@ -44,24 +46,27 @@ When("the user clicks the logout button in the settings page", () => {
 });
 
 Then("the profile picture URL should be successfully updated", () => {
-    cy.visit('/@'+AccountData.newUsername);
-    cy.get('img').should('have.attr', 'src', editUserData.image);
+    settingsPageAsserts
+    .checkProfileImage(AccountData.username, editUserData.image)
 });
   
 Then("the username should be successfully updated", () => {
     cy.visit('')
-    topBarComponentAsserts.checkProfileIsAppeard(editUserData.username)
+    topBarComponentAsserts
+    .checkProfileIsAppeard(editUserData.username)
 });
 
 Then("the email should be successfully updated", () => {
     cy.visit('/settings');
-    cy.get('input[placeholder="Email"]').should('have.value', editUserData.email);
+    settingsPageAsserts
+    .checkEmail(editUserData.email)
 });
 
 Then("the password should be successfully updated", () => {
     cy.logout();
     cy.login(AccountData.newEmail, editUserData.password);
-    topBarComponentAsserts.checkProfileIsAppeard(AccountData.newUsername)
+    topBarComponentAsserts
+    .checkProfileIsAppeard(AccountData.newUsername)
 });
 
 Then("the user should be logged out", () => {

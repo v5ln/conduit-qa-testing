@@ -1,6 +1,6 @@
 import AccountData from "../../fixtures/accontData"
 
-class SignupPageAsserts {
+class TopBarComponentAsserts {
 
     checkSignInUrl(isExist = true){
         cy.url().should(isExist ? 'include': 'not.include', '/login')
@@ -33,7 +33,7 @@ class SignupPageAsserts {
     }
 
     checkHomeIsAppeard(isExist = true){
-        cy.get("a.nav-link[href='#/']").should(isExist ? 'be.exist': 'not.be.exist')
+        cy.get("a.nav-link[href='#']").should(isExist ? 'be.exist': 'not.be.exist')
         return this
     }
 
@@ -63,4 +63,4 @@ class SignupPageAsserts {
     }
 }
 
-export default SignupPageAsserts
+export default TopBarComponentAsserts

@@ -14,21 +14,21 @@ class AccountData {
 
     static createNewUserData(): User{
         return new User(
-            uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals, names], separator : "" }) + "TC",
-            uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals]}) + "@uniqeTC.com",
-            uniqueNamesGenerator({ dictionaries: [adjectives,colors], separator : ""}) ,
+            uniqueNamesGenerator({ dictionaries: [colors,adjectives, animals, names], separator : "" }) + "TC",
+            uniqueNamesGenerator({ dictionaries: [colors,adjectives, animals]}) + "@uniqeTC.com",
+            "mOhAmMaD2033",
             "bio",
             "https://us-tuna-sounds-images.voicemod.net/1f142fc4-2735-4dac-8a3f-d1e041cee417-1664232879534.jpg"
         )
     }
 
     static getNewUsername(): string{
-        this.newUsername = uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals, names], separator : "" }) + "TC"
+        this.newUsername = uniqueNamesGenerator({ dictionaries: [colors,adjectives, animals, names], separator : "" }) + "TC"
         return this.newUsername
     }
 
     static getNewEmail(): string{
-        this.newEmail = uniqueNamesGenerator({ dictionaries: [adjectives, colors, animals]}) + "@uniqeTC.com"
+        this.newEmail = uniqueNamesGenerator({ dictionaries: [colors,adjectives, animals, names]}) + "@uniqeTC.com"
         return this.newEmail
     }
 

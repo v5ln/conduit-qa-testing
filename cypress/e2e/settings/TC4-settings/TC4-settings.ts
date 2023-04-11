@@ -70,5 +70,6 @@ Then("the password should be successfully updated", () => {
 });
 
 Then("the user should be logged out", () => {
-    cy.get("a.nav-link[href='#login']", {timeout: 5000}).should('be.exist')
+    settingsPageAsserts
+    .checkUserIsLoggedIn()
 });

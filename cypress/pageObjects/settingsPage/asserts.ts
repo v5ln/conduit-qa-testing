@@ -12,14 +12,8 @@ class SettingsPageAsserts {
         return this
     }
 
-    checkSigninButtonIsAppeard(){
-        cy.get('button[type="submit"]').should("be.visible").and("not.be.disabled");
-        return this
-    }
-
-    checkInvalidMsgIsAppeard(){
-        cy.get('ul[class="error-messages"]').should("be.visible");
-        return this
+    checkUserIsLoggedIn(){
+        cy.get("a.nav-link[href='#login']", {timeout: 5000}).should('be.exist')
     }
 }
 

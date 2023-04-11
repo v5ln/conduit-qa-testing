@@ -1,10 +1,12 @@
 import ArticleData from "../../fixtures/articleData";
+import User from "../../fixtures/model/user";
+import AccountData from "../../fixtures/accontData"
 
 
 class Services {
 
   createNewArticle() {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
     cy.request({
       method: 'POST',
       url: 'https://conduit.productionready.io/api/articles',
@@ -27,7 +29,7 @@ class Services {
 
   followUser(username: string) {
     username = '@' + username
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'POST',
@@ -40,7 +42,7 @@ class Services {
 
   unfollowUser(username: string) {
     username = '@' + username
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'DELETE',
@@ -54,7 +56,7 @@ class Services {
   deleteArticle(
     url?: string,
     articleId: string = url? ArticleData.getSlug(url):ArticleData.getSlug(url)) {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'DELETE',
@@ -68,7 +70,7 @@ class Services {
   favoriteArticle(
     url?: string,
     articleId: string = url? ArticleData.getSlug(url):ArticleData.getSlug(url)) {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'POST',
@@ -82,7 +84,7 @@ class Services {
   unfavoriteArticle(
     url?: string,
     articleId: string = url? ArticleData.getSlug(url):ArticleData.getSlug(url)) {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'DELETE',
@@ -97,7 +99,7 @@ class Services {
     url?: string,
     articleId: string = url? ArticleData.getSlug(url):ArticleData.getSlug(url),
     comment: string = ArticleData.Comment) {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
     cy.request({
       method: 'POST',
       url: `https://conduit.productionready.io/api/articles/${articleId}/comments`,
@@ -117,7 +119,7 @@ class Services {
     url?: string,
     articleId: string = url? ArticleData.getSlug(url):ArticleData.getSlug(url),
     commentId: number = ArticleData.CommentId) {
-    const token = window.localStorage.getItem('token');
+    const token = localStorage.getItem('jwt');
 
     cy.request({
       method: 'DELETE',
@@ -128,6 +130,12 @@ class Services {
     });
   }
 
+  static createNewUser(){
+    cy.logout()
+    cy.then(()=>{
+        cy.signup(AccountData.getNewUsername(), AccountData.getNewEmail(), AccountData.getNewPassword())
+    })
+  }
 }
 
 export default Services;

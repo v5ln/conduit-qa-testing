@@ -39,7 +39,8 @@ class SettingsPageAction {
     }
 
     clickSubmitButton(){
-        cy.get('button[type="submit"]').click();
+        cy.get('button[type="submit"]').click({force: true});
+        cy.wait(2000);
         return this
     }
 }

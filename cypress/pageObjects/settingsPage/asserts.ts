@@ -1,28 +1,19 @@
 class SettingsPageAsserts {
 
-    checkUrl(){
-        cy.url().should('include', '/login')
-        return this
-    } 
 
-    checkEmailInputIsAppeard(){
-        cy.get('input[type="email"]').should("be.visible")
+    checkProfileImage(username: string, image: string){
+        cy.visit('/@'+username);
+        cy.get('img').should('have.attr', 'src', image);
         return this
     }
 
-    checkPasswordInputIsAppeard(){
-        cy.get('input[type="password"]').should("be.visible")
+    checkEmail(email: string){
+        cy.get('input[placeholder="Email"]').should('have.value', email);
         return this
     }
 
-    checkSigninButtonIsAppeard(){
-        cy.get('button[type="submit"]').should("be.visible").and("not.be.disabled");
-        return this
-    }
-
-    checkInvalidMsgIsAppeard(){
-        cy.get('ul[class="error-messages"]').should("be.visible");
-        return this
+    checkUserIsLoggedIn(){
+        cy.get("a.nav-link[href='#login']", {timeout: 5000}).should('be.exist')
     }
 }
 

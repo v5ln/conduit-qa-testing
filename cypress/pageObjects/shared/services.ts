@@ -132,9 +132,11 @@ class Services {
 
   static createNewUser(){
     cy.logout()
-    cy.then(()=>{
-        cy.signup(AccountData.getNewUsername(), AccountData.getNewEmail(), AccountData.getNewPassword())
-    })
+    AccountData.getNewUsername()
+    AccountData.getNewEmail()
+    AccountData.getNewPassword()
+    cy.signup(AccountData.newUsername, AccountData.newEmail, AccountData.newPassword)
+    
   }
 }
 

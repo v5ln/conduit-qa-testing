@@ -9,7 +9,7 @@ When("[COMMON]: User logged in with default acconut", ()=>{
 })
 
 When("[COMMON]: User logged out", ()=>{
-    cy.login()
+    cy.logout()
 })
 
 When("[COMMON]: User sign up new acconut", ()=>{

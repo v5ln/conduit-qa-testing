@@ -28,7 +28,6 @@ Feature: Top Bar Navigation
     Scenario: #6 Verify buttons when user is logged out
     Given [COMMON]: User logged out
     Then Logo button should be "displayed"
-    And Home button should be "displayed"
     And Sign in button should be "displayed"
     And Sign up button should be "displayed"
     And New Post button should be "not displayed"

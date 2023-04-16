@@ -1,6 +1,6 @@
 import { Then } from "@badeball/cypress-cucumber-preprocessor";
 import TopBarComponentAsserts from "../../../pageObjects/topBarComponent/asserts";
-import AccountData from "../../../fixtures/accontData";
+import AccountData from "../../../fixtures/accountData";
 
 const topBarComponentAsserts = new TopBarComponentAsserts();
 

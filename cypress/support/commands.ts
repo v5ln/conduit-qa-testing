@@ -1,11 +1,13 @@
-const { default: AccountData } = require("../fixtures/accontData");
+import AccountData from "../fixtures/accontData";
 
-declare namespace Cypress {
-  interface Chainable<Subject> {
-     generateToken({secret}): void;
-     login(email?: string, password?: string): void;
-     logout(): void;
-     signup(username?: string, email?: string, password?: string): void;
+declare global{
+  namespace Cypress {
+    interface Chainable {
+       generateToken({secret}): void;
+       login(email?: string, password?: string): void;
+       logout(): void;
+       signup(username?: string, email?: string, password?: string): void;
+    }
   }
 }
 

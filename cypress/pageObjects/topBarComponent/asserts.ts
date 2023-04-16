@@ -1,4 +1,4 @@
-import AccountData from "../../fixtures/accontData"
+import AccountData from "../../fixtures/accountData"
 
 class TopBarComponentAsserts {
 

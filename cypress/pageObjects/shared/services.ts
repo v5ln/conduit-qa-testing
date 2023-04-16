@@ -1,6 +1,6 @@
 import ArticleData from "../../fixtures/articleData";
 import User from "../../fixtures/model/user";
-import AccountData from "../../fixtures/accontData"
+import AccountData from "../../fixtures/accountData"
 
 
 class Services {

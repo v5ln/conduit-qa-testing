@@ -1,7 +1,7 @@
 import { Then, When } from "@badeball/cypress-cucumber-preprocessor";
 import SettingsPageAction from "../../../pageObjects/settingsPage/actions";
 import User from "../../../fixtures/model/user"
-import AccountData from "../../../fixtures/accontData"
+import AccountData from "../../../fixtures/accountData"
 import TopBarComponentAsserts from "../../../pageObjects/topBarComponent/asserts";
 import Services from "../../../pageObjects/shared/services";
 import SettingsPageAsserts from "../../../pageObjects/settingsPage/asserts";

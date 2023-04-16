@@ -1,6 +1,6 @@
 import { When, Given } from "@badeball/cypress-cucumber-preprocessor";
 import LoginPageAction from "../../pageObjects/loginPage/actions";
-import AccountData from "../../fixtures/accontData";
+import AccountData from "../../fixtures/accountData";
 
 const loginPageAction = new LoginPageAction();
 
